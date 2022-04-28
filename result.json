@@ -1,0 +1,237 @@
+[
+  {
+    "address": "0x6ec7b4fec23015ed9daa8dbf0e3573da69e5d36e",
+    "amount_deus": 290084643027299392,
+    "amount_usd": 158130166452958515870
+  },
+  {
+    "address": "0x2e15d7aa0650de1009710fdd45c3468d75ae1392",
+    "amount_deus": 36080441157968420864,
+    "amount_usd": 19800000000000000000000
+  },
+  {
+    "address": "0x5737b080b14d79d21957bab6da630acfbd03011a",
+    "amount_deus": 376782224792370,
+    "amount_usd": 201810002209639467
+  },
+  {
+    "address": "0x544d2120fa52e71e1048081e6df256b06e192f48",
+    "amount_deus": 3204192615122237952,
+    "amount_usd": 1721192566664279981968
+  },
+  {
+    "address": "0x11e765721e8f1b13224a73b0361796e32e32bad8",
+    "amount_deus": 377881474598782,
+    "amount_usd": 202398776284592613
+  },
+  {
+    "address": "0x0a70589d299fab2b12cca68bf499057bd3ddcae5",
+    "amount_deus": 3548946589126373888,
+    "amount_usd": 1900867057590525679115
+  },
+  {
+    "address": "0xb7e87009d5ac8fc6ac2205ed77bbf400572a4044",
+    "amount_deus": 37507474252772958208,
+    "amount_usd": 20089545004415435496610
+  },
+  {
+    "address": "0x8ba7ec23e4f4121ec87c9fe8942e7144248a6ea5",
+    "amount_deus": 7876764861757980672,
+    "amount_usd": 4259596924516902233767
+  },
+  {
+    "address": "0x9fb470376f12af151c9ce88bf7b4acaa13bad02b",
+    "amount_deus": 11660213038180247552,
+    "amount_usd": 6387542171064619330572
+  },
+  {
+    "address": "0x42c7a0438e27617b982fab95348f05cc02d6d092",
+    "amount_deus": 28164228909459128320,
+    "amount_usd": 15428551715618019837138
+  },
+  {
+    "address": "0xbf68f1ce39ed3bd9b20944260aa678bb934d164b",
+    "amount_deus": 82869557721827901440,
+    "amount_usd": 44664682746959114853720
+  },
+  {
+    "address": "0x091c22b75c478726f6752fcca80d56e612c11d53",
+    "amount_deus": 1881334437020224000,
+    "amount_usd": 1010594317309855248369
+  },
+  {
+    "address": "0x2a9c628f9b1b06a881407ae457ffb0e51fb7e752",
+    "amount_deus": 359000115760097024,
+    "amount_usd": 200787416332732562597
+  },
+  {
+    "address": "0xd1275eb5d5ea553bb52f00cf8025f07b50a66329",
+    "amount_deus": 1728156672639022216,
+    "amount_usd": 925625677050108069855
+  },
+  {
+    "address": "0xd49963a190caab3bbbafa26136dcc1023ff007af",
+    "amount_deus": 0,
+    "amount_usd": 0
+  },
+  {
+    "address": "0x16e637c4cab6be4ad900329c0f08bbcb9810378c",
+    "amount_deus": 14204706716675497984,
+    "amount_usd": 7681621338955571070848
+  },
+  {
+    "address": "0x27d4a79f9096f1b337de23d089d27c0eca313979",
+    "amount_deus": 3643749804282979328,
+    "amount_usd": 2009375767390889543830
+  },
+  {
+    "address": "0x1b47235150bcccd6b51f60f175174dd2d579bc13",
+    "amount_deus": 691369073949563520,
+    "amount_usd": 385081333866527692677
+  },
+  {
+    "address": "0xcff8097b146dc56f40bdf34e18e0283dd404765f",
+    "amount_deus": 53921301669306049373,
+    "amount_usd": 28881029329801181131037
+  },
+  {
+    "address": "0x35c0578375d034b10dc73d8bb4d26f8c1bff0001",
+    "amount_deus": 3645859778666479104,
+    "amount_usd": 2020568671250405749015
+  },
+  {
+    "address": "0xbd6c1e096c66d4fd93d71cfc270387c9f8236cf9",
+    "amount_deus": 69052456795416512,
+    "amount_usd": 37092831056800591346
+  },
+  {
+    "address": "0x1ee81a15108866b0aa70aa76445559c49a9556fc",
+    "amount_deus": 494558271762774691840,
+    "amount_usd": 264973853998401755401726
+  },
+  {
+    "address": "0x06399c4af0de9e01add546adba102477a4d15b9a",
+    "amount_deus": 320887918914555,
+    "amount_usd": 198000000000000000
+  },
+  {
+    "address": "0x2408e836ebfcf135731df4cf357c10a7b65193bf",
+    "amount_deus": 787921889772068,
+    "amount_usd": 495000000000000000
+  },
+  {
+    "address": "0x6568ffd045030d6f008fa12214d69ce51100b615",
+    "amount_deus": 26346170391156322304,
+    "amount_usd": 14544397318492385870705
+  },
+  {
+    "address": "0x41c6beb49d2d471c1f6889c800c6ae92c6d1abb3",
+    "amount_deus": 18283375109509485824,
+    "amount_usd": 9859914857396368045830
+  },
+  {
+    "address": "0x1cbea1fc4de249ba78b294043bac7e2cb10998ee",
+    "amount_deus": 12831894618952101888,
+    "amount_usd": 6872948114342732620932
+  },
+  {
+    "address": "0x3d216ebbda0bcd9bc31ea4e8116158221fc34543",
+    "amount_deus": 437272839356560128,
+    "amount_usd": 241137699989305916994
+  },
+  {
+    "address": "0x8138d2201ec4b556953b3b959a1771e89b5d53ef",
+    "amount_deus": 0,
+    "amount_usd": 0
+  },
+  {
+    "address": "0xb32e23c6b979f6530cd3e5e284a875f7db78b2e8",
+    "amount_deus": 221738500001,
+    "amount_usd": 141570000000000
+  },
+  {
+    "address": "0x60fb4b046b07ce529fb93598286339873d26dd0c",
+    "amount_deus": 10092870992684206,
+    "amount_usd": 5405887494978367781
+  },
+  {
+    "address": "0xb4d7397808a68d440a4a741bc08efbc20ef714a6",
+    "amount_deus": 641421888634986,
+    "amount_usd": 396000000000000000
+  },
+  {
+    "address": "0x701428525cbac59dae7af833f19d9c3aaa2a37cb",
+    "amount_deus": 553987392386020999168,
+    "amount_usd": 297216138755719915333870
+  },
+  {
+    "address": "0x8fe0e1205811d5a7e80ee9dc65ae75cafd71ac8d",
+    "amount_deus": 18490505071843475456,
+    "amount_usd": 9965934000000000000000
+  },
+  {
+    "address": "0xbdfa4f4492dd7b7cf211209c4791af8d52bf5c50",
+    "amount_deus": 113455617479358431232,
+    "amount_usd": 60768467585812048528523
+  },
+  {
+    "address": "0x3b15cec2d922ab0ef74688bcc1056461049f89cb",
+    "amount_deus": 1893665974050319872,
+    "amount_usd": 1014274849664171902038
+  },
+  {
+    "address": "0x307fa4d240b49177f52905cad88567aa5bc85b91",
+    "amount_deus": 367573722313956,
+    "amount_usd": 198776518606436144
+  },
+  {
+    "address": "0xa89202ce2d612d4f9764a0ee00d1f2d0c552ba17",
+    "amount_deus": 365127370075979904,
+    "amount_usd": 198000000000000000000
+  },
+  {
+    "address": "0xaaa79d6f0307fc103d7fdeb04c659c1c0c398fff",
+    "amount_deus": 3240072660656804864,
+    "amount_usd": 1757015330503844492037
+  },
+  {
+    "address": "0x0fe1aa632a2837239f218e3efad21e8018a9f4ef",
+    "amount_deus": 1101193712128067840,
+    "amount_usd": 595503538800723392957
+  },
+  {
+    "address": "0xed320bf569e5f3c4e9313391708ddbfc58e296bb",
+    "amount_deus": 5776088160880805888,
+    "amount_usd": 3169765721120678231671
+  },
+  {
+    "address": "0x06960627461629409a087af6da50fe4d38d74f7e",
+    "amount_deus": 19435624185189429248,
+    "amount_usd": 10410001060745955187821
+  },
+  {
+    "address": "0x708c9d44eafac41fa7217bd8390fc2b18613e739",
+    "amount_deus": 6355645188770964480,
+    "amount_usd": 3487811420783383617067
+  },
+  {
+    "address": "0x0bbe643d5d9dd0498d0c9546f728504a4aab78f4",
+    "amount_deus": 36445081086784897024,
+    "amount_usd": 20097939405801830666305
+  },
+  {
+    "address": "0xf72cd97a579fb4b06588812ad3bf3f9c739f02a3",
+    "amount_deus": 3687287921287851,
+    "amount_usd": 2010004551321109989
+  },
+  {
+    "address": "0x72c5cd18a51d53db34072546a7a38a4f73600d92",
+    "amount_deus": 20399123179782406144,
+    "amount_usd": 11174775206674717222921
+  },
+  {
+    "address": "0x5a09edfcc6f4aa80ef9c996521b1a33650bf4c81",
+    "amount_deus": 8912226146649285632,
+    "amount_usd": 4963965068131202065291
+  }
+]
