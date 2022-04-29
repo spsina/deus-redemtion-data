@@ -65,8 +65,8 @@ def to_be_collected_deus(can_collect):
     for collector, positions in info.items():
         total_usd = 0
         total_deus = 0
-        if collector == '0x1eE81A15108866B0AA70aa76445559c49a9556fC':
-            print(positions[0])
+        if collector == '0x701428525cbAc59dAe7AF833f19D9C3aaA2a37cb':
+            continue
         for position in positions[0]:
 
             amount, __time = position
@@ -109,13 +109,14 @@ def main():
     redeemed, can_collect, collected_collateral, un_collected = get_tx_data()
 
     to_be_collected_deus_list = []
-    counter = 0
-    step = 10
-    while counter * step < len(can_collect):
-        to_be_collected_deus_list.extend(to_be_collected_deus(
-            can_collect[counter * step: (counter+1) * step]))
-        counter += 1
-
+    # counter = 0
+    # step = 500
+    # while counter * step < len(can_collect):
+    # to_be_collected_deus_list.extend(to_be_collected_deus(
+    #     can_collect[counter * step: (counter+1) * step]))
+    #     counter += 1
+    to_be_collected_deus_list.extend(to_be_collected_deus(
+        can_collect))
     summery = {
         "totalRedeemedCount": len(redeemed),
         "totalCollectedCollateralCount": len(collected_collateral),
