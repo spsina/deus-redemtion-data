@@ -65,7 +65,10 @@ def to_be_collected_deus(can_collect):
     for collector, positions in info.items():
         total_usd = 0
         total_deus = 0
+        if collector == '0x1eE81A15108866B0AA70aa76445559c49a9556fC':
+            print(positions[0])
         for position in positions[0]:
+
             amount, __time = position
             amount = int(amount)
             __time = int(__time)
@@ -74,9 +77,9 @@ def to_be_collected_deus(can_collect):
                 continue
 
             # deus_twap = twap_contract.functions.twap(w3.toChecksumAddress("0xde5ed76e7c05ec5e4572cfc88d1acea165109e44"), 10**18, __time, 28800).call()
-
+            deus_price = 485 * 10 ** 18
             total_usd += amount
-            # total_deus += int((amount * 10 ** 18)/ int(deus_twap))
+            total_deus += int((amount * 10 ** 18) / int(deus_price))
 
         to_be_collected.append({
             'address': collector,
@@ -101,15 +104,30 @@ def to_be_collected_collateral(un_collected):
     return usdc_uncollected
 
 
-redeemed, can_collect, collected_collateral, un_collected = get_tx_data()
+def main():
 
-summery = {
-    "totalRedeemedCount": len(redeemed),
-    "totalCollectedCollateralCount": len(collected_collateral),
-    "totalCanCollectDeusCount": len(can_collect),
-    "redeemedAddresses": redeemed,
-    "toBeCollectedDeus": to_be_collected_deus(can_collect),
-    "toBeCollectedUSDC": to_be_collected_collateral(un_collected)
-}
+    redeemed, can_collect, collected_collateral, un_collected = get_tx_data()
 
-print(summery['toBeCollectedDeus'])
+    to_be_collected_deus_list = []
+    counter = 0
+    step = 10
+    while counter * step < len(can_collect):
+        to_be_collected_deus_list.extend(to_be_collected_deus(
+            can_collect[counter * step: (counter+1) * step]))
+        counter += 1
+
+    summery = {
+        "totalRedeemedCount": len(redeemed),
+        "totalCollectedCollateralCount": len(collected_collateral),
+        "totalCanCollectDeusCount": len(can_collect),
+        "redeemedAddresses": redeemed,
+        "toBeCollectedDeus": to_be_collected_deus_list,
+        "toBeCollectedUSDC": to_be_collected_collateral(un_collected)
+    }
+
+    pprint(sorted(summery['toBeCollectedDeus'],
+                  key=lambda d: d['amount_usd'])[::-1])
+    print(sum([d['amount_usd'] for d in summery['toBeCollectedDeus']]) / 1e18)
+
+
+main()
