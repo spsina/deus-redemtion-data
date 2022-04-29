@@ -14,46 +14,60 @@ def get_redeemed_and_can_collect():
 
     redeemed = []
     can_collect = []
+
+    collected_collateral = []
     
     for line in content:
         line_data = line.split(",")
-        if line_data[-2] == "\"Redeem Fractional DEI\"":
-            tx_hash = line_data[4].replace("\"", "")
-            redeemed.append(tx_hash)
+        from_address = line_data[4].replace("\"", "")
+        method = line_data[-2]
+        if method == "\"Redeem Fractional DEI\"":    # redeemed dei
+            redeemed.append(from_address)
             _time = int(line_data[2].replace("\"", ""))
             _now = int(time.time())
             diff = _now - _time
-            if (diff > 28800):
+            if (diff > 28800):  # can collect
                 can_collect.append(line_data[4].replace("\"", ""))
+        elif method == "\"Collect Collateral\"": # collected usdc
+            collected_collateral.append(from_address)
 
     redeemed = list(set(redeemed))
     can_collect = list(set(can_collect))
-    return redeemed, can_collect
+    collected_collateral = list(set(collected_collateral))
+    un_collected = list(set(redeemed) - set(collected_collateral))
+    return redeemed, can_collect, collected_collateral, un_collected
 
-redeemed, can_collect = get_redeemed_and_can_collect()
-to_be_collected = []
-for collector in can_collect:
-    positions = dei_pool.functions.getUnRedeemedPositions(w3.toChecksumAddress(collector)).call()
-    total_usd = 0
-    total_deus = 0
-    for position in positions:
-        amount, __time = position
-        amount = int(amount)
-        __time = int(__time)
 
-        if __time == 0: continue
+def get_to_be_collected_data(can_collect):
+    to_be_collected = []
+    for collector in can_collect:
+        positions = dei_pool.functions.getUnRedeemedPositions(w3.toChecksumAddress(collector)).call()
+        total_usd = 0
+        total_deus = 0
+        for position in positions:
+            amount, __time = position
+            amount = int(amount)
+            __time = int(__time)
 
-        deus_twap = twap_contract.functions.twap(w3.toChecksumAddress("0xde5ed76e7c05ec5e4572cfc88d1acea165109e44"), 10**18, __time, 28800).call()
-        
-        total_usd += amount
-        total_deus += int((amount * 10 ** 18)/ int(deus_twap))
+            if __time == 0: continue
 
-    to_be_collected.append({
-        'address': collector,
-        'amount_usd': total_usd,
-        'amount_deus': total_deus
-    })
+            deus_twap = twap_contract.functions.twap(w3.toChecksumAddress("0xde5ed76e7c05ec5e4572cfc88d1acea165109e44"), 10**18, __time, 28800).call()
+            
+            total_usd += amount
+            total_deus += int((amount * 10 ** 18)/ int(deus_twap))
 
-pprint(to_be_collected)
+        to_be_collected.append({
+            'address': collector,
+            'amount_usd': total_usd,
+            'amount_deus': total_deus
+        })
 
-        
+def get_uncollected_collateral():
+    pass
+
+redeemed, can_collect, collected_collateral, un_collected = get_redeemed_and_can_collect()
+
+print("Redeemed", len(redeemed))
+print("collected collateral", len(collected_collateral))
+print("can collect", len(can_collect))
+print("un collected", len(un_collected))
