@@ -1,3 +1,4 @@
+import json
 import time
 from webbrowser import get
 import web3
@@ -8,7 +9,7 @@ w3 = web3.Web3(web3.HTTPProvider("https://rpc.ankr.com/fantom"))
 dei_pool = w3.eth.contract(w3.toChecksumAddress("0x9bd5cc542bc922e95ba41c0702555e830f2c1cb4"), abi=dei_pool_abi)
 twap_contract = w3.eth.contract(w3.toChecksumAddress("0x1Bc270B2bE5c361784044ccE3f55c896fB5Fdf5A"), abi=twap_abi)
 
-def get_redeemed_and_can_collect():
+def get_tx_data():
     data = open("data.csv")
     content = data.readlines()[1:]
 
@@ -41,7 +42,7 @@ def get_redeemed_and_can_collect():
     return redeemed, can_collect, collected_collateral, un_collected
 
 
-def get_to_be_collected_data(can_collect):
+def to_be_collected_deus(can_collect):
     to_be_collected = []
     for collector in can_collect:
         positions = dei_pool.functions.getUnRedeemedPositions(w3.toChecksumAddress(collector)).call()
@@ -65,7 +66,9 @@ def get_to_be_collected_data(can_collect):
             'amount_deus': total_deus
         })
 
-def get_uncollected_collateral(un_collected):
+        return to_be_collected
+
+def to_be_collected_collateral(un_collected):
     usdc_uncollected = []
     for not_collected in un_collected:
         amount = dei_pool.functions.redeemCollateralBalances(w3.toChecksumAddress(not_collected)).call()
@@ -77,11 +80,15 @@ def get_uncollected_collateral(un_collected):
 
     return usdc_uncollected
 
-redeemed, can_collect, collected_collateral, un_collected = get_redeemed_and_can_collect()
+redeemed, can_collect, collected_collateral, un_collected = get_tx_data()
 
-pprint(get_uncollected_collateral(un_collected))
+summery = {
+    "totalRedeemedCount": len(redeemed),
+    "totalCollectedCollateralCount": len(collected_collateral),
+    "totalCanCollectDeusCount": len(can_collect),
+    "redeemedAddresses": redeemed,
+    "toBeCollectedDeus": to_be_collected_deus(can_collect),
+    "toBeCollectedUSDC": to_be_collected_collateral(un_collected)
+}
 
-print("Redeemed", len(redeemed))
-print("collected collateral", len(collected_collateral))
-print("can collect", len(can_collect))
-print("un collected", len(un_collected))
+print(summery)
