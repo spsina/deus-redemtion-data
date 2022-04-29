@@ -20,6 +20,9 @@ def get_redeemed_and_can_collect():
     for line in content:
         line_data = line.split(",")
         from_address = line_data[4].replace("\"", "")
+        status = line_data[14].replace("\"", "")
+        if status == "Reverted":
+            continue
         method = line_data[-2]
         if method == "\"Redeem Fractional DEI\"":    # redeemed dei
             redeemed.append(from_address)
@@ -62,10 +65,21 @@ def get_to_be_collected_data(can_collect):
             'amount_deus': total_deus
         })
 
-def get_uncollected_collateral():
-    pass
+def get_uncollected_collateral(un_collected):
+    usdc_uncollected = []
+    for not_collected in un_collected:
+        amount = dei_pool.functions.redeemCollateralBalances(w3.toChecksumAddress(not_collected)).call()
+        amount = int(amount)
+        usdc_uncollected.append({
+            'address': not_collected,
+            'amount': amount
+        })
+
+    return usdc_uncollected
 
 redeemed, can_collect, collected_collateral, un_collected = get_redeemed_and_can_collect()
+
+pprint(get_uncollected_collateral(un_collected))
 
 print("Redeemed", len(redeemed))
 print("collected collateral", len(collected_collateral))
