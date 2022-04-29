@@ -66,7 +66,7 @@ def to_be_collected_deus(can_collect):
             'amount_deus': total_deus
         })
 
-        return to_be_collected
+    return to_be_collected
 
 def to_be_collected_collateral(un_collected):
     usdc_uncollected = []
